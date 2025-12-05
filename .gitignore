@@ -1,0 +1,22 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcuserdatad/
+*.xcworkspace/xcuserdata/
+WorkspaceSettings.xcsettings
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# Realm
+*.realm
+*.realm.lock
+*.realm.management/
+
+# Test plans
+*.xctestplan
+NewsAggregatorUITests/
