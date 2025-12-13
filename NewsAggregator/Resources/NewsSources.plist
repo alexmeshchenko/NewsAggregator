@@ -4,23 +4,23 @@
 <array>
 	<dict>
 		<key>id</key>
-		<string>vedomosti</string>
+		<string>bbc</string>
 		<key>name</key>
-		<string>Ведомости</string>
+		<string>BBC News</string>
 		<key>feedURL</key>
-		<string>https://www.vedomosti.ru/rss/news</string>
+		<string>https://feeds.bbci.co.uk/news/world/rss.xml</string>
 		<key>logoURL</key>
-		<string>https://cdn4.vedomosti.ru/icons/apple-touch-icon.png</string>
+		<string>https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif</string>
 	</dict>
 	<dict>
 		<key>id</key>
-		<string>rbc</string>
+		<string>guardian</string>
 		<key>name</key>
-		<string>РБК</string>
+		<string>The Guardian</string>
 		<key>feedURL</key>
-		<string>https://rssexport.rbc.ru/rbcnews/news/30/full.rss</string>
+		<string>https://www.theguardian.com/world/rss</string>
 		<key>logoURL</key>
-		<string>https://s.rbk.ru/v10_rbcnews_static/common/common-10.11.13/images/mstile-310x310.png</string>
+		<string>https://assets.guim.co.uk/images/guardian-logo-rss.c45beb1bafa34b347ac333af2e6fe23f.png</string>
 	</dict>
 </array>
 </plist>

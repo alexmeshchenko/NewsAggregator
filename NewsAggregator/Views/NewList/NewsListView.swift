@@ -19,10 +19,10 @@ struct NewsListView: View {
         NavigationStack {
             Group {
                 if viewModel.isLoading && viewModel.news.isEmpty {
-                    ProgressView("Загрузка...")
+                    ProgressView("Loading...")
                 } else if let error = viewModel.error, viewModel.news.isEmpty {
                     ContentUnavailableView(
-                        "Ошибка загрузки",
+                        "Failed to Load",
                         systemImage: "exclamationmark.triangle",
                         description: Text(error.localizedDescription)
                     )
@@ -30,7 +30,7 @@ struct NewsListView: View {
                     newsList
                 }
             }
-            .navigationTitle("Новости")
+            .navigationTitle("News")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {

@@ -18,11 +18,11 @@ enum RefreshInterval: Int, CaseIterable, Identifiable {
     
     var title: String {
         switch self {
-        case .off: "Выкл"
-        case .oneMinute: "1 мин"
-        case .fiveMinutes: "5 мин"
-        case .fifteenMinutes: "15 мин"
-        case .thirtyMinutes: "30 мин"
+        case .off: "Off"
+        case .oneMinute: "1 min"
+        case .fiveMinutes: "5 min"
+        case .fifteenMinutes: "15 min"
+        case .thirtyMinutes: "30 min"
         }
     }
 }

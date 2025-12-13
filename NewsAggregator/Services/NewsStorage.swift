@@ -18,7 +18,7 @@ final class NewsStorage {
     
     func save(_ items: [NewsItem]) {
         let realmItems = items.map { item -> RealmNewsItem in
-            // Сохраняем существующий isRead статус
+            // Keep existing isRead status
             let existingItem = realm.object(ofType: RealmNewsItem.self, forPrimaryKey: item.id)
             let realmItem = RealmNewsItem(from: item)
             realmItem.isRead = existingItem?.isRead ?? false

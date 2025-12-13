@@ -13,7 +13,7 @@ actor ImageCache {
     
     private let memoryCache = NSCache<NSString, UIImage>()
     private let fileManager = FileManager.default
-    private let cacheDirectory: URL // диск: Caches/ImageCache/
+    private let cacheDirectory: URL // disk: Caches/ImageCache/
     
     private init() {
         let caches = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0] // Library/Caches/

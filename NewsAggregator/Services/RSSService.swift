@@ -72,7 +72,7 @@ final class RSSParser: NSObject, XMLParserDelegate {
     
     // MARK: - XMLParserDelegate
     
-    // Парсер ищет картинки в enclosure и media:content
+    // Parser is looking for pictures in enclosure and media:content
     func parser(_ parser: XMLParser, didStartElement elementName: String,
                 namespaceURI: String?, qualifiedName qName: String?,
                 attributes attributeDict: [String: String] = [:]) {
@@ -87,7 +87,7 @@ final class RSSParser: NSObject, XMLParserDelegate {
             currentImageURL = nil
         }
         
-        // Картинка может быть в enclosure или media:content
+        // Image can be in enclosure or media:content
         if isInsideItem {
             
             if elementName == "enclosure",
@@ -141,12 +141,12 @@ final class RSSParser: NSObject, XMLParserDelegate {
     
     // MARK: - Helpers
     
-    // Чистка HTML тегов из description
+    // Clean HTML tags from description
     private func cleanHTML(_ string: String) -> String? {
         let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return nil }
         
-        // Убираем HTML теги
+        // Delete HTML tags
         let cleaned = trimmed.replacingOccurrences(
             of: "<[^>]+>",
             with: "",
@@ -158,7 +158,7 @@ final class RSSParser: NSObject, XMLParserDelegate {
     private func parseDate(_ string: String) -> Date? {
         let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // RFC 822 - стандартный формат RSS
+        // RFC 822 - standard RSS format
         let formatters: [DateFormatter] = [
             Self.rfc822Formatter,
             Self.rfc822FormatterAlt

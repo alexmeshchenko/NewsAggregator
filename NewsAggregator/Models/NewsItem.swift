@@ -9,9 +9,9 @@
 import Foundation
 
 /*
- Sendable везде - для Swift 6 concurrency
- В NewsItem храню sourceID вместо полного NewsSource - проще для Realm потом
- Источники захардкожены как static - для MVP достаточно
+ Sendable everywhere - for Swift 6 concurrency
+ NewsItem stores sourceID instead of full NewsSource - simpler for Realm mapping
+ Sources are hardcoded as static - sufficient for MVP
  */
 struct NewsItem: Identifiable, Sendable {
     let id: String

@@ -15,16 +15,16 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Обновление") {
-                    Picker("Автообновление", selection: $viewModel.refreshInterval) {
+                Section("Renewing") {
+                    Picker("Auto-updating", selection: $viewModel.refreshInterval) {
                         ForEach(RefreshInterval.allCases) { interval in
                             Text(interval.title).tag(interval.rawValue)
                         }
                     }
                 }
                 
-                Section("Источники") {
-                    ForEach(NewsSource.all) { source in // NewsSource.all загружается из NewsSources.plist
+                Section("Sources") {
+                    ForEach(NewsSource.all) { source in // NewsSource.all loads from NewsSources.plist
                         Toggle(source.name, isOn: Binding(
                             get: { viewModel.isSourceEnabled(source) },
                             set: { _ in viewModel.toggleSource(source) }
@@ -37,21 +37,21 @@ struct SettingsView: View {
                         showClearConfirmation = true
                     } label: {
                         HStack {
-                            Text("Очистить кэш")
+                            Text("Clear cache")
                             Spacer()
                         }
                     }
                 }
             }
-            .navigationTitle("Настройки")
-            .confirmationDialog("Очистить кэш?", isPresented: $showClearConfirmation) {
-                Button("Очистить", role: .destructive) {
+            .navigationTitle("Settings")
+            .confirmationDialog("Clear the cache?", isPresented: $showClearConfirmation) {
+                Button("Clean", role: .destructive) {
                     Task {
                         await viewModel.clearCache()
                     }
                 }
             } message: {
-                Text("Будут удалены все сохранённые новости и изображения")
+                Text("All saved news and images will be deleted")
             }
         }
     }

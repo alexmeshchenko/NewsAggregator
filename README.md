@@ -1,55 +1,55 @@
-#  NewsAggregator
+# NewsAggregator
 
-Агрегатор новостей из нескольких RSS-источников.
+RSS news aggregator from multiple sources.
 
-## Функциональность
+## Features
 
-- Отображение новостей из нескольких источников в едином списке
-- Сортировка по дате публикации
-- Два режима отображения: компактный и расширенный
-- Пометка прочитанных новостей
-- Автообновление по таймеру (настраивается)
-- Включение/отключение источников
-- Кэширование изображений (память + диск)
-- Офлайн-доступ к списку загруженных новостей
+- Display news from multiple sources in a unified list
+- Sorted by publication date
+- Two display modes: compact and expanded
+- Read status tracking
+- Auto-refresh timer (configurable)
+- Enable/disable sources
+- Image caching (memory + disk)
+- Offline access to loaded news
 
-## Архитектура
+## Architecture
 
-**MVVM** с разделением на слои:
+**MVVM** with layer separation:
 ```
-├── Models/          # Доменные модели и Realm-сущности
-├── Services/        # RSS-парсинг, хранение, кэш изображений
-├── ViewModels/      # Логика представления
-├── Views/           # SwiftUI-экраны
-└── Resources/       # Конфигурация источников (plist)
+├── Models/          # Domain models and Realm entities
+├── Services/        # RSS parsing, storage, image cache
+├── ViewModels/      # Presentation logic
+├── Views/           # SwiftUI screens
+└── Resources/       # Source configuration (plist)
 ```
 
-## Технологии
+## Technologies
 
 - **Swift 6**, iOS 16+
 - **SwiftUI** - UI
-- **Realm** - локальное хранение новостей
-- **XMLParser** - парсинг RSS
+- **Realm** - local news storage
+- **XMLParser** - RSS parsing
 
-## Масштабируемость
+## Scalability
 
-Добавление нового источника — одна запись в `NewsSources.plist`:
+Adding a new source — single entry in `NewsSources.plist`:
 ```xml
-
-    id
-    new_source
-    name
-    Новый источник
-    feedURL
-    https://example.com/rss
-    logoURL
-    https://example.com/logo.png
-
+<dict>
+    <key>id</key>
+    <string>new_source</string>
+    <key>name</key>
+    <string>New Source</string>
+    <key>feedURL</key>
+    <string>https://example.com/rss</string>
+    <key>logoURL</key>
+    <string>https://example.com/logo.png</string>
+</dict>
 ```
 
-Перекомпиляция не требуется при изменении plist в runtime (для debug).
+No recompilation needed when modifying plist at runtime (for debug).
 
-## Тесты
+## Tests
 
-- `ImageCacheTests` — кэширование, очистка, concurrent access
-- `RSSParserTests` — парсинг XML, обработка HTML в описании
+- `ImageCacheTests` — caching, clearing, concurrent access
+- `RSSParserTests` — XML parsing, HTML handling in descriptions
